@@ -1,4 +1,5 @@
 const fs = require('fs')
+const menu = require('/menu')
 
 function parseStore(storeData){
     /*
@@ -9,6 +10,16 @@ function parseStore(storeData){
    var address = `${storeData["address"]}, ${storeData["city"]}, ${storeData["state"]}`
    var storeID = storeData["recordId"]
    var geoJSON = JSON.parse(storeData["geoJson"])
+   var url = `https://locations.dunkindonuts.com/en/${storeID}`
+
+   var meta = {
+    "address": address,
+    "html_url": url,
+    "geoJSON": geoJSON,
+    "id": storeID
+   }
+   
+   menu.scrapeMenu(storeID, meta)
 }
 
 
