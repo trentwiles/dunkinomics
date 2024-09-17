@@ -13,7 +13,7 @@ locations.readFile((error, storesList) => {
       })
       .join("");
     header = "id,address,url,lat,lon\n";
-    fs.writeFile("data/stores.csv", header + csvContent, "a", (err) => {
+    fs.writeFile("data/stores.csv", header + csvContent, "utf8", (err) => {
       if (err) throw err;
       console.log("CSV file available at data/stores.csv");
     });
