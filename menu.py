@@ -50,14 +50,22 @@ with open('data/stores.csv', mode='r', newline='') as file:
         
         time.sleep(WAIT_TIME)
         # get price data
-        price = getPrice(row[0])
+        # obviously try-catch like this is HORRIBLE coding but it is what it is
+        try:
+            price = getPrice(row[0])
+        except:
+            price = -1
         
         # create the csv row to go into the brand new csv file
+        # price,id,address,url,cords
         csv_modified = f'{price},{row[0]},"{row[1]}",{row[2]},"{row[3]},{row[4]}"\n'
+        
+        # simple debug/progress message
+        print(f"Extracted price {price} from store {row[0]} - {row[2]}")
         
         # write to the new csv file
         with open("data/prices.csv", "a") as p:
             p.write(csv_modified)
         
 # now that all of the data from the old csv file has been extracted, destroy it
-os.remove(stores.csv)
+os.remove("stores.csv")

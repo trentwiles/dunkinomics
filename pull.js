@@ -3,15 +3,8 @@ const fs = require("fs");
 
 // add whatever this is to gitignore
 // eventually add this to a .env file
-const SAVE_PATH = "response.json";
+const SAVE_PATH = "data/response.json";
 const USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0"
-
-
-fs.unlink(SAVE_PATH, (err) => {
-  if (err) {
-    console.error("unable to remove file:", err);
-  }
-});
 
 axios
   .post(

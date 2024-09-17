@@ -1,5 +1,4 @@
 const fs = require("fs");
-const menu = require("./menu");
 
 function parseStore(storeData) {
   /*
@@ -24,7 +23,7 @@ function parseStore(storeData) {
 
 function readFile(callback) {
   var storesList = [];
-  fs.readFile("response.json", "utf8", (err, data) => {
+  fs.readFile("data/response.json", "utf8", (err, data) => {
     if (err) {
       console.error("Error reading file:", err);
       callback(err);  // Pass error to callback

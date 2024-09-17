@@ -12,10 +12,10 @@ locations.readFile((error, storesList) => {
         return `${element["id"]},"${element["address"]}",${element["html_url"]},${element["geoJSON"]["coordinates"][0]},${element["geoJSON"]["coordinates"][1]}\n`;
       })
       .join("");
-    console.log(csvContent);
     header = "id,address,url,lat,lon\n";
     try{
         fs.writeFile("data/stores.csv", header + csvContent);
+        console.log("added stores to file")
     }catch{
         console.log("failed to write")
     }
