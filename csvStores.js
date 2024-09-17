@@ -13,12 +13,9 @@ locations.readFile((error, storesList) => {
       })
       .join("");
     header = "id,address,url,lat,lon\n";
-    fs.writeFile("data/stores.csv", header + csvContent, 'a');
-    try{
-        //fs.writeFile("data/stores.csv", header + csvContent, 'a');
-        console.log("added stores to file")
-    }catch{
-        console.log("failed to write")
-    }
+    fs.writeFile("data/stores.csv", header + csvContent, "a", (err) => {
+      if (err) throw err;
+      console.log("CSV file available at data/stores.csv");
+    });
   }
 });
