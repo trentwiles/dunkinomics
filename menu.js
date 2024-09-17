@@ -1,6 +1,6 @@
 const axios = require("axios");
 const fs = require("fs");
-const TOKEN = "d2f28b0ab69842ac91412d448ad10680";
+const TOKEN = "";
 const CSV_PATH = "data/index.csv";
 
 // if it doesn't exit, then create the header of the CSV
