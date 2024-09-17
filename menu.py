@@ -1,12 +1,18 @@
 import requests
 import csv
 import time
+import os
 
 TOKEN = "d2f28b0ab69842ac91412d448ad10680"
+# in case we need to prevent getting rate limits
+WAIT_TIME = 0
 
 # we now have this stores.csv file from the javascript code
 # it is our job to parse it and send a request to the DD api
 # to get the iced coffee price from each store
+
+with open("data/prices.csv", "a") as p:
+    p.write("price,id,address,url,cords\n")
 
 def getPrice(id):
     res = requests.get(
@@ -42,8 +48,16 @@ with open('data/stores.csv', mode='r', newline='') as file:
         if row[0] == "id":
             continue
         
+        time.sleep(WAIT_TIME)
+        # get price data
         price = getPrice(row[0])
-        print(f"Price for {row[1]}: {price}")
-        #time.sleep(3)
         
+        # create the csv row to go into the brand new csv file
+        csv_modified = f'{price},{row[0]},"{row[1]}",{row[2]},"{row[3]},{row[4]}"\n'
         
+        # write to the new csv file
+        with open("data/prices.csv", "a") as p:
+            p.write(csv_modified)
+        
+# now that all of the data from the old csv file has been extracted, destroy it
+os.remove(stores.csv)
