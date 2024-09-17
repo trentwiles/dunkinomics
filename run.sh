@@ -17,8 +17,10 @@ echo "====================================================="
 mkdir old_data/archived$RUN_TIME
 cp data/response.json old_data/archived$RUN_TIME/response.json
 cp data/prices.csv old_data/archived$RUN_TIME/prices.csv
+cp data/stores.csv old_data/archived$RUN_TIME/stores.csv
 rm -f data/prices.csv
 rm -f data/response.json
+rm -rf data/stores.csv
 
 echo "*** Backed Up Old Data ***"
 echo "====================================================="
