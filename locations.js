@@ -1,43 +1,49 @@
-const fs = require('fs')
-const menu = require('/menu')
+const fs = require("fs");
+const menu = require("./menu");
 
-function parseStore(storeData){
-    /*
+function parseStore(storeData) {
+  /*
     SAMPLE OF STORE DATA
     ----------------
     see sample.json
     */
-   var address = `${storeData["address"]}, ${storeData["city"]}, ${storeData["state"]}`
-   var storeID = storeData["recordId"]
-   var geoJSON = JSON.parse(storeData["geoJson"])
-   var url = `https://locations.dunkindonuts.com/en/${storeID}`
+  var address = `${storeData["address"]}, ${storeData["city"]}, ${storeData["state"]}`;
+  var storeID = storeData["recordId"];
+  var geoJSON = JSON.parse(storeData["geoJson"]);
+  var url = `https://locations.dunkindonuts.com/en/${storeID}`;
 
-   var meta = {
-    "address": address,
-    "html_url": url,
-    "geoJSON": geoJSON,
-    "id": storeID
-   }
-   
-   menu.scrapeMenu(storeID, meta)
+  var meta = {
+    address: address,
+    html_url: url,
+    geoJSON: geoJSON,
+    id: storeID,
+  };
+
+  return meta
 }
 
-
-fs.readFile('response.json', 'utf8', (err, data) => {
+function readFile(callback) {
+  var storesList = [];
+  fs.readFile("response.json", "utf8", (err, data) => {
     if (err) {
-      console.error('Error reading file:', err);
+      console.error("Error reading file:", err);
+      callback(err);  // Pass error to callback
     } else {
       // Parse the JSON data
       const jsonData = JSON.parse(data);
 
       // Use the parsed JSON data
-      console.log(jsonData);
-      var stores = jsonData.data.storeAttributes
+      var stores = jsonData.data.storeAttributes;
 
-      console.log(stores.length)
-
-      for(var i = 0; i < stores.length; i++){
-        parseStore(stores[i])
+      for (var i = 0; i < stores.length; i++) {
+        storesList.push(parseStore(stores[i]));
       }
+      callback(null, storesList);  // Pass null (no error) and storesList
     }
   });
+}
+
+module.exports = {
+  parseStore,
+  readFile
+}
