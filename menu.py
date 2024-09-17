@@ -1,6 +1,5 @@
 import requests
 import csv
-import sys
 import time
 
 TOKEN = "d2f28b0ab69842ac91412d448ad10680"

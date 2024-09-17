@@ -1,3 +1,9 @@
+# install npm packages
+npm i
+
+# install python3 packages
+
+
 # download the store data from Dunkin Donuts (uses ~20-30MB of bandwidth)
 node pull.js
 
