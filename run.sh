@@ -5,3 +5,5 @@ node pull.js
 node csvStores.js
 
 # now comes the python part
+# get the menu prices
+python3 menu.py
