@@ -14,7 +14,7 @@ locations.readFile((error, storesList) => {
       .join("");
     header = "id,address,url,lat,lon\n";
     try{
-        fs.writeFile("data/stores.csv", header + csvContent);
+        fs.writeFile("data/stores.csv", header + csvContent, 'a');
         console.log("added stores to file")
     }catch{
         console.log("failed to write")
