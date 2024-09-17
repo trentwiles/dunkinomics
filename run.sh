@@ -1,4 +1,5 @@
 RUN_TIME=$(date +%s)
+GREEN="\033[32m"
 
 echo "*** Dunkinomics ***"
 echo "====================================================="
@@ -33,7 +34,6 @@ node csvStores.js
 
 echo "*** Processed Store Data ***"
 echo "====================================================="
-
 # now comes the python part
 # get the menu prices
 python3 menu.py

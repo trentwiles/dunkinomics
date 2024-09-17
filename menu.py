@@ -55,6 +55,9 @@ with open('data/stores.csv', mode='r', newline='') as file:
             price = getPrice(row[0])
         except:
             price = -1
+            
+        if price == None:
+            price = -1
         
         # create the csv row to go into the brand new csv file
         # price,id,address,url,cords
