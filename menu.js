@@ -11,7 +11,7 @@ if (!fs.existsSync(CSV_PATH)) {
   console.log("index.csv has been created.");
 }
 
-function parseMenuData(menuData, metaData) {
+async function parseMenuData(menuData, metaData) {
   var allCategories = menuData["categoryFamilies"];
   var validCat = null;
   for (var i = 0; i < allCategories.length; i++) {
