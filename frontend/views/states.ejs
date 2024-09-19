@@ -29,8 +29,8 @@
             };
 
             info.update = function (props) {
-                const contents = props ? `<b>${props.name}</b><br />${props.density} people / mi<sup>2</sup>` : 'Hover over a state';
-                this._div.innerHTML = `<h4>US Population Density</h4>${contents}`;
+                const contents = props ? `<b>$${props.name}</b><br />${props.density}` : 'Hover over a state';
+                this._div.innerHTML = `<h4>Average Small Iced Coffee Price Per State</h4>${contents}`;
             };
 
             info.addTo(map);
@@ -96,9 +96,6 @@
                     click: zoomToFeature
                 });
             }
-
-            map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
-
 
             const legend = L.control({ position: 'bottomright' });
 
