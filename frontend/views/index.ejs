@@ -8,18 +8,44 @@
 <body>
     <div id="map"></div>
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        function getColor(value) {
+            if (value < 1.75) {
+                return "green";
+            } else if (value > 5) {
+                return "red";
+            } else {
+                // Calculate the value within the 1.75-5 range
+                const normalizedValue = (value - 1.75) / (5 - 1.75);
+
+                // Create a color gradient from green to red
+                const redComponent = Math.floor(255 * normalizedValue);
+                const greenComponent = Math.floor(255 * (1 - normalizedValue));
+                const color = `rgb(${redComponent}, ${greenComponent}, 0)`;
+
+                return color;
+            }
+        }
+        // GET THE JSON
+        // index.json
+
+        var map = L.map('map').setView([0, 0], 1);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        
+
         }).addTo(map);
-        var circle = L.circle([51.508, -0.11], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: 500
-        }).addTo(map);
+
+        $.get("index.json", function (data, status) {
+            data.data.forEach(element => {
+                var circle = L.circle([element.lat, element.lon], {
+                    color: getColor(element.price),
+                    fillColor: getColor(element.price),
+                    fillOpacity: 0.5,
+                    radius: 250
+                }).addTo(map);
+                circle.bindPopup(`<a href='${element.url}' target='_blank'>Store ${element.id}</a><br>${element.address}<br>Price: $${element.price}`);
+            });
+        });
     </script>
 </body>
 <footer>
