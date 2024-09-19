@@ -6,6 +6,15 @@
 </head>
 
 <body>
+    <!-- extra style for tab on map -->
+    <style>
+        .leaflet-container {
+            height: 400px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
     <div id="map"></div>
     <script>
 
@@ -44,7 +53,7 @@
                             d > 2.5 ? '#FC4E2A' :
                                 d > 2 ? '#FD8D3C' :
                                     d > 0 ? '#FEB24C' :
-                                    // color for -1 error result
+                                        // color for -1 error result
                                         d > -2 ? '#FED976' : '#FFEDA0';
             }
 
