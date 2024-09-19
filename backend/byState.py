@@ -100,6 +100,9 @@ for stateObj in jsonData["features"]:
     stateAbv = convertStateToAbv(name)
     if stateAbv != None:
         stateObj["properties"]["density"] = getAverageByState(stateAbv)
+    else:
+        # if the state doesn't exist, it doesn't have dunkin...
+        stateObj["properties"]["density"] = -1
 
 # Now, jsonData now contains the data from Dunkin Donuts
 # It can be saved into frontend for use in the OSM map
