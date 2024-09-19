@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include('header.ejs'); %>
-    </head>
-    <body>
+
+<head>
+    <%- include('header.ejs'); %>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         
-    </body>
-    <footer>
-        <%- include('footer.ejs'); %>
-    </footer>
+        }).addTo(map);
+        var circle = L.circle([51.508, -0.11], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map);
+    </script>
+</body>
+<footer>
+    <%- include('footer.ejs'); %>
+</footer>
+
 </html>

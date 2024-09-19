@@ -1,5 +1,7 @@
 import os
 import sys
+import json
+import csv
 
 if not os.path.isfile('data/prices.csv'):
     print("please ensure data/prices.csv exists")
@@ -33,3 +35,29 @@ print(str(pct_removed) + "% removed")
 os.remove("data/prices.csv")
 with open("data/prices.csv", 'a') as d:
     d.write(csv_contents)
+    
+# now that we cleaned out the csv, we can write to json
+holder = []
+with open("data/prices.csv", "r") as d:
+    reader = csv.reader(d)
+    for api in reader:
+        if "price" != api[0]:
+            cordinates = api[4].split(",")
+            # 3.09,353936,"350 Pleasant St, Belmont, MA",https://locations.dunkindonuts.com/en/353936,"42.403717,-71.166456"
+            format = {
+                "price": api[0],
+                "id": api[1],
+                "address": api[2],
+                "url": api[3],
+                "lat": float(cordinates[0]),
+                "lon": float(cordinates[1])
+            }
+            holder.append(format)
+
+path = "../frontend/static/index.json"
+try:
+    os.remove(path)
+except FileNotFoundError:
+    print("Did not remove JSON file, doesn't exist")
+with open(path, 'a') as p:
+    p.write(json.dumps({"data": holder}))
