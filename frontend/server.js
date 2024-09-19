@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.render("index.ejs", {title: "Dunkinomics"})
 })
 
+app.get('/states', (req, res) => {
+  res.render("states.ejs", {title: "Dunkinomics | States"})
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
