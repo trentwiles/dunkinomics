@@ -59,10 +59,13 @@
             };
 
             info.update = function (props) {
+
                 if(props.density == -1){
-                    props.density = "No Dunkin Locations"
+                    density = "No Dunkin Locations"
+                }else{
+                    density = props.density
                 }
-                const contents = props ? `<b>${props.name}</b><br />$${props.density}` : 'Hover over a state';
+                const contents = props ? `<b>${props.name}</b><br />$${density}` : 'Hover over a state';
                 this._div.innerHTML = `<h4>Average Small Iced Coffee Price Per State</h4>${contents}`;
             };
 
