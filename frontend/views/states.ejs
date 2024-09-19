@@ -29,7 +29,7 @@
             };
 
             info.update = function (props) {
-                const contents = props ? `<b>$${props.name}</b><br />${props.density}` : 'Hover over a state';
+                const contents = props ? `<b>${props.name}</b><br />$${props.density}` : 'Hover over a state';
                 this._div.innerHTML = `<h4>Average Small Iced Coffee Price Per State</h4>${contents}`;
             };
 
