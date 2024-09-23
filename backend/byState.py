@@ -113,11 +113,3 @@ if os.path.exists(save_path):
 
 with open(save_path, "a") as a:
     a.write(json.dumps(jsonData))
-
-
-
-
-print("Connecticut: " + str(getAverageByState("CT")))
-print("Mass: " + str(getAverageByState("MA")))
-print("New York: " + str(getAverageByState("NY")))
-print("New Jersey: " + str(getAverageByState("NJ")))

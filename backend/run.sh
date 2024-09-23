@@ -39,3 +39,6 @@ echo "====================================================="
 # now comes the python part
 # get the menu prices
 python3 menu.py
+echo "*** Downloaded all Price Data ***"
+python3 byState.py
+echo "*** Created State Data File ***"
