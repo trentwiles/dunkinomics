@@ -66,6 +66,30 @@ with open("../frontend/static/states.json") as static:
                 )
         
         # if it wasn't found, nothing will be added
-print(incomeToCoffeeRatio)
-print("============================")
-print(coffeesWithDisposable)
+
+# now that we have this data, we can write it to a file...
+
+with open("../frontend/static/states.json", "r") as s:
+    data = json.loads(s.read())
+    # first wipe all data from the previous states data
+    for ste in data["features"]:
+        ste["properties"]["density"] = -1
+    
+    for ste in data["features"]:
+        name = ste["properties"]["name"]
+        
+        abv_name = byState.convertStateToAbv(name)
+        if name == None:
+            continue
+        
+        # search our data for the state's abvrieviation in coffeesWithDisposable
+        for coffee in coffeesWithDisposable:
+            if coffee["state"] == abv_name:
+                ste["properties"]["density"] = coffee["coffees"]
+        
+    save_path = "../frontend/static/dispose.json"
+    if os.path.exists(save_path):
+        os.remove(save_path)
+
+    with open(save_path, 'a') as w:
+        w.write(json.dumps(data))
