@@ -42,3 +42,5 @@ python3 menu.py
 echo "*** Downloaded all Price Data ***"
 python3 byState.py
 echo "*** Created State Data File ***"
+python3 disposable.py
+echo "*** Created Disposable Income Data ***"

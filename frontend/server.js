@@ -14,6 +14,10 @@ app.get('/states', (req, res) => {
   res.render("states.ejs", {title: "Dunkinomics | States"})
 })
 
+app.get('/disposableincome', (req, res) => {
+  res.render("disposable.ejs", {title: "Dunkinomics | Disposable Income"})
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
