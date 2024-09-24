@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/states', (req, res) => {
+  /*
+  Project: auto-set the ranges for the colors, based on the data in the file
+  */
   res.render("states.ejs", {title: "Dunkinomics | States"})
 })
 
