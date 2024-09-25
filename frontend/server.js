@@ -1,26 +1,43 @@
-const express = require('express')
-const app = express()
-const port = 8392
+const express = require("express");
+const app = express();
+const port = 8392;
 
-app.use(express.static('static'))
+PROJECT_NAME = "Dunkinomics"
 
-app.set('view engine', 'ejs');
+app.use(express.static("static"));
 
-app.get('/', (req, res) => {
-  res.render("index.ejs", {title: "Dunkinomics"})
-})
+app.set("view engine", "ejs");
 
-app.get('/states', (req, res) => {
+app.get("/", (req, res) => {
+  data = {
+    title: `${PROJECT_NAME} | Home`,
+    html_title: "Map of All Locations",
+    description: "blah blah"
+  };
+  res.render("index.ejs", data);
+});
+
+app.get("/states", (req, res) => {
   /*
   Project: auto-set the ranges for the colors, based on the data in the file
   */
-  res.render("states.ejs", {title: "Dunkinomics | States"})
-})
+  data = {
+    title: `${PROJECT_NAME} | States`,
+    html_title: "Average Cost By State",
+    description: "blah blah"
+  };
+  res.render("states.ejs", data);
+});
 
-app.get('/disposableincome', (req, res) => {
-  res.render("disposable.ejs", {title: "Dunkinomics | Disposable Income"})
-})
+app.get("/disposableincome", (req, res) => {
+  data = {
+    title: `${PROJECT_NAME} | Disposable Income`,
+    html_title: "Disposable Income vs. Cost",
+    description: "How much does a coffee relativley cost?"
+  };
+  res.render("disposable.ejs", data);
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
