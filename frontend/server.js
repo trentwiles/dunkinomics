@@ -11,8 +11,8 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   data = {
     title: `${PROJECT_NAME} | Home`,
-    html_title: "Map of All Locations",
-    description: "blah blah",
+    html_title: "Dunkinomics",
+    description: "During my time working for Dunkin Donuts in the summer after freshman year, I learned plenty",
     next: "/locations_mapped",
     next_title: "Next"
   };

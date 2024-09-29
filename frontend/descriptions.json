@@ -1,0 +1,22 @@
+[
+    {
+        "route": "/",
+        "comments_to_self": "",
+        "description": "During the summer between my freshman and sophomore years of college, I worked full-time at one of the Northeast's most popular coffee chains: Dunkin (formerly Dunkin' Donuts). While I learned a lot about the foodservice industry, one thing became crystal clear — buying takeout coffee every day is not cheap. It made me wonder: just how costly is the world's favorite drink in different parts of the country? To address this question, I wrote code to scrape data from the Dunkin' Donuts website, collecting information for every Dunkin' location in the United States. From that data, I extracted the price of a small iced coffee at each location. This process left me with about 9,000 price points along with their corresponding geographic coordinates."
+    },
+    {
+        "route": "/locations_mapped",
+        "comments_to_self": "",
+        "description": ""
+    },
+    {
+        "route": "/states",
+        "comments_to_self": "",
+        "description": ""
+    },
+    {
+        "route": "/disposableincome",
+        "comments_to_self": "",
+        "description": ""
+    }
+]
