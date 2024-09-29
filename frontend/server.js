@@ -41,7 +41,7 @@ app.get("/states", (req, res) => {
     next: "/disposableincome",
     next_title: "Next"
   };
-  res.render("states.ejs", data);
+  res.render("index.ejs", data);
 });
 
 app.get("/disposableincome", (req, res) => {

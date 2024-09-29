@@ -1,22 +1,26 @@
 [
     {
         "route": "/",
-        "comments_to_self": "",
-        "description": "During the summer between my freshman and sophomore years of college, I worked full-time at one of the Northeast's most popular coffee chains: Dunkin (formerly Dunkin' Donuts). While I learned a lot about the foodservice industry, one thing became crystal clear — buying takeout coffee every day is not cheap. It made me wonder: just how costly is the world's favorite drink in different parts of the country? To address this question, I wrote code to scrape data from the Dunkin' Donuts website, collecting information for every Dunkin' location in the United States. From that data, I extracted the price of a small iced coffee at each location. This process left me with about 9,000 price points along with their corresponding geographic coordinates."
+        "comments_to_self": "Add an image of the CSV file with the location data. Consider adding some <br> tags to make it a bit easier to read. Link to the GitHub code when you mention the scraping?",
+        "description": "During the summer between my freshman and sophomore years of college, I worked full-time at one of the Northeast's most popular coffee chains: Dunkin (formerly Dunkin' Donuts). While I learned a lot about the foodservice industry, one thing became crystal clear — buying takeout coffee every day is not cheap. It made me wonder: just how costly is the world's favorite drink in different parts of the country? To address this question, I wrote code to scrape data from the Dunkin' Donuts website, collecting information for every Dunkin' location in the United States. From that data, I extracted the price of a small iced coffee at each location. This process left me with about 9,000 price points along with their corresponding geographic coordinates.",
+        "description_post_map": ""
     },
     {
         "route": "/locations_mapped",
-        "comments_to_self": "",
-        "description": ""
+        "comments_to_self": "Link to Leaflet.js",
+        "description": "Having completed scraping the data, I moved on to visualizing it. Using Leaflet.js, I plotted each location on a map. To represent price variations, I colored each location's dot from green to red—light green indicating the lowest prices and dark red representing the highest.",
+        "description_post_map": "My first observations were not surprising. The red hue in the New York City area was no surprise. The cost of living in that area is without a doubt one of the highest out of all metro regions in the United States. What did surprise me was how cheap Dunkin Donuts was in other metro areas."
     },
     {
         "route": "/states",
         "comments_to_self": "",
-        "description": ""
+        "description": "Next, I reviewed Leaflet's documentation to create a state-based map.",
+        "description_post_map": ""
     },
     {
         "route": "/disposableincome",
-        "comments_to_self": "",
-        "description": ""
+        "comments_to_self": "While it was interesting to see how the price of coffee varied, this data is meaningless without knowing how much money people have to spend in each state.",
+        "description": "",
+        "description_post_map": ""
     }
 ]
