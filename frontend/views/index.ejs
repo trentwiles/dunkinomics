@@ -5,24 +5,15 @@
     <%- include('header.ejs'); %>
 </head>
 
-<body>
-    <!--
-    Ash - this is where I need you to add HTML and CSS. Where you need
-    to add code will be indicated by these comments. You'll add it in
-    between the "start" and "end" comments.
-    -->
+<body>  
+    <%- include('headMessage.ejs'); %>
 
-    <!--
-    Start - add the style.css file here
-    -->
-
-    <!--
-    End
-    -->
     <h2><%= title %></h2>
-    
+
     <!-- Content Description (pre map)-->
     <%= Description %>
+
+    <!-- extra style for tab on map -->
 
     <div id="map"></div>
     <script>
