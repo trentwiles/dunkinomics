@@ -9,7 +9,7 @@
         "route": "/locations_mapped",
         "comments_to_self": "Link to Leaflet.js",
         "description": "Having completed scraping the data, I moved on to visualizing it. Using Leaflet.js, I plotted each location on a map. To represent price variations, I colored each location's dot from green to red—light green indicating the lowest prices and dark red representing the highest.",
-        "description_post_map": "My first observations were not surprising. The red hue in the New York City area was no surprise. The cost of living in that area is without a doubt one of the highest out of all metro regions in the United States. What did surprise me was how cheap Dunkin Donuts was in other metro areas."
+        "description_post_map": "My first observations were not surprising. The red hue in the New York City area was no surprise. The cost of living in that area is without a doubt one of the highest out of all metro regions in the United States. What did surprise me was how small the Boston metro area was in comparison to New York. Towns and cities imediatly surrounding Boston has similarly high prices, but only a few miles outside the city, prices seemed back to normal. I also learned how much of a scam rest stop coffee is. Notice the random red dots along the shore in Connecticut. Each one of a rest stop, charging almost double for the same product."
     },
     {
         "route": "/states",
