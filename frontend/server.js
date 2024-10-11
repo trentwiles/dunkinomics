@@ -5,6 +5,7 @@ const port = 8392;
 PROJECT_NAME = "Dunkinomics"
 
 app.use(express.static("static"));
+app.use("/descriptions", express.static("descriptions"));
 
 app.set("view engine", "ejs");
 
